@@ -1,7 +1,7 @@
  steps:
  # Build the container image
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-management-frontend:$COMMIT_SHA', '.']
+   args: ['build', '-t', 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-management-frontend:$COMMIT_SHA', 'customer-management-frontend/.']
  # Push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-management-frontend:$COMMIT_SHA']
@@ -16,5 +16,6 @@
    - 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-management-frontend:$COMMIT_SHA'
    - '--region'
    - 'us-central1'
+   - --set-env-vars=REACT_APP_CUSTOMER_MANAGEMENT_BACKEND=https://customer-management-backend-bqc53s6dvq-uc.a.run.app/
  images:
  - 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-management-frontend:$COMMIT_SHA'
