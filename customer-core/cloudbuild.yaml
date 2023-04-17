@@ -1,7 +1,7 @@
  steps:
  # Build the container image
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-core:$COMMIT_SHA', '.']
+   args: ['build', '-t', 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-core:$COMMIT_SHA', 'Dockerfile']
  # Push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/cldsol0952/github.com/samuelmaissen/lakesidemutual/customer-core:$COMMIT_SHA']
